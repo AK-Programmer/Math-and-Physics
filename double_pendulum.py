@@ -3,22 +3,22 @@ import numpy as np
 from math import cos, sin, pi, ceil
 
 #Starting conditions
-length_1 = 5 #Length of top rod
-length_2 = 5 #Length of bottom rod
-mass_1 = 5 #mass of top ball
-mass_2 = 5 #mass of bottom ball
-theta_1 = - pi/2 #angle between y-axis and top rod
-theta_2 = -pi/2 #angle between y-axis and bottom rod
-omega_1 = 3 #angular velocity of top rod
-omega_2 = -1 #angular velocity of bottom rod
+length_1 = 1 #Length of top rod
+length_2 = 1 #Length of bottom rod
+mass_1 = 2 #mass of top ball
+mass_2 = 2 #mass of bottom ball
+theta_1 = pi/2 #angle between y-axis and top rod
+theta_2 = pi/2 -1 #angle between y-axis and bottom rod
+omega_1 = 0 #angular velocity of top rod
+omega_2 = 0 #angular velocity of bottom rod
 omega_1p = 0 #angular acceleration of top rod
 omega_2p = 0 #angular acceleration of bottom rod
 g = 9.81
 
 #Other parameters
-iter_increment = 0.001 #Increment time by 0.1 seconds each iteration
+iter_increment = 0.0001 #Increment time by 0.1 seconds each iteration
 current_iter = 0
-iter_period = 10 #time (seconds) for which we want to simulate the pendulum
+iter_period = 20 #time (seconds) for which we want to simulate the pendulum
 
 #corresponding angular velocities for each iteration
 vel_1 = [omega_1]
@@ -48,6 +48,7 @@ for i in range(ceil(iter_period / iter_increment)):
 
     p_1 = pos_1[-1] + v_1 * iter_increment + (a_1 * iter_increment * iter_increment)/2
     p_2 = pos_2[-1] + v_2 * iter_increment + (a_2 * iter_increment * iter_increment)/2
+
     pos_1.append(p_1)
     pos_2.append(p_2)
 
@@ -72,6 +73,9 @@ print(vel_1)
         dual_euler(length_1, length_2, mass_1, mass_2, theta_1, theta_2)
     else:"""
 
+fig, ax = plt.subplots()
+ax.plot(times, vel_1)
 
-
+fig, ax = plt.subplots()
+ax.plot(times, vel_2)
 #dual_euler(length_1, length_2, mass_1, mass_2, theta_1, theta_2)
