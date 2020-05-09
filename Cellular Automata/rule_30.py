@@ -3,13 +3,12 @@ import matplotlib.pyplot as plt
 from math import floor
 
 #Matrix dimensions
-rows = 200
-cols = 200
+rows = 100
+cols = 100
 plt.figure(num=None, figsize=(10, 10), dpi=80, facecolor='w', edgecolor='k')
 
 #Defining the matrix that will be used
-lattice =  np.zeros((rows+2, cols+1), int) #Matrix is padded by one cell on all side
-update_lattice = np.zeros((rows+2, cols+2), int) #Matrix is padded by one cell on all side
+lattice =  np.zeros((rows+2, cols+1), int) #Matrix is padded by one cell on left, right, and bottom
 lattice[0][round(cols/2)] = 1
 
 #Defining rule 30
